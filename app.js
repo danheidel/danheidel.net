@@ -59,7 +59,7 @@ app.get('/api/starcount/:dist', function(req, res){
     res.send([]);
   }else{
     console.log('row count for: ' + dist);
-    dbCon.dbQuery('SELECT COUNT FROM good_dist WHERE Distance < ' + dist, function(err, rows){
+    dbCon.dbQuery('SELECT COUNT StarID FROM good_dist WHERE Distance < ' + dist, function(err, rows){
       if(err){
         console.log(err);
         res.send(err);
