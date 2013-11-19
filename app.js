@@ -32,7 +32,7 @@ app.get('/test4/:foo', function(req, res){
   res.send(req.params.foo);
 });
 //db handler
-app.get('/stardist/:dist', function(req, res){
+app.get('/api/stardist/:dist', function(req, res){
   var dist = req.params.dist;
   //return empty set if no search query
   if(typeof dist ===' undefined'){
