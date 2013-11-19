@@ -52,7 +52,7 @@ app.get('/api/stardist/:dist', function(req, res){
   }
 });
 
-app.get('/api/starcount/:dist', function(res, req){
+app.get('/api/starcount/:dist', function(req, res){
   var dist = req.params.dist;
   if(starQuery(dist) !== true){
     console.log('bad query');
