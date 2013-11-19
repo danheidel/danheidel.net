@@ -1,0 +1,32 @@
+var express = require('express');
+var dbCon = require('./node_modules/foo');
+var app = express();
+var port = process.argv[2];
+
+if(typeof port === 'undefined'){
+	console.error('no port defined!');
+	process.exit();
+}	
+
+//init database access
+db = dbCon.dbConHandler({
+  host: 'localhost',
+  user: 'root',
+  password: 'Ih35MV9XqLcS',
+  database: 'HYG',
+});
+
+// all environments
+app.use(express.logger());
+app.use(express.static(__dirname + '/public_html'));
+//handle db requests
+app.get('/test', function(req, res){
+  
+});
+
+app.listen(port);
+console.log('serving danheidel.net on port: ' + port);
+
+process.on('exit', function() {
+  dbCon.closeDbConnection(db);
+});
