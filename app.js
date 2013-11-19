@@ -1,12 +1,13 @@
 var express = require('express');
-var dbCon = require('./node_modules/foo');
+var dbCon = require('dbCon');
+var isNum = require('sanitize').isNumber;
 var app = express();
 var port = process.argv[2];
 
 if(typeof port === 'undefined'){
 	console.error('no port defined!');
 	process.exit();
-}	
+}
 
 //init database access
 dbCon.initDbPool({
@@ -34,13 +35,8 @@ app.get('/test4/:foo', function(req, res){
 //db handler
 app.get('/api/stardist/:dist', function(req, res){
   var dist = req.params.dist;
-  //return empty set if no search query
-  if(typeof dist ===' undefined'){
-    console.log('empty query');
-    res.send([]);
-  }
-  if(!(dbCon.isNumber(dist) && dist > 0)){
-    console.log('invalid query format');
+  if(starQuery(dist) !== true){
+    console.log('bad query');
     res.send([]);
   }else{
     console.log('query for: ' + dist);
@@ -51,10 +47,29 @@ app.get('/api/stardist/:dist', function(req, res){
       }else{
         console.log(rows.length + ' rows sent');
         res.send(rows);
-      }      
+      }
     });
   }
 });
+
+app.get('/api/starcount/:dist', function(res, req){
+  var dist = req.params.dist;
+  if(starQuery(dist) !== true){
+    console.log('bad query');
+    res.send([]);
+  }else{
+    console.log('row count for: ' + dist);
+    dbCon.query('SELECT COUNT FROM good_dist WHERE Distance < ' + dist, function(err, rows){
+      if(err){
+        console.log(err);
+        res.send(err);
+      }else{
+        console.log(rows + 'rows send');
+        res.send(rows);
+      }
+    }
+  }
+}
 
 app.listen(port);
 console.log('serving danheidel.net on port: ' + port);
@@ -62,3 +77,8 @@ console.log('serving danheidel.net on port: ' + port);
 process.on('exit', function() {
 });
 
+function starQuery(iQuery){
+  if(typeof iQuery === 'undefined'){return 'empty query';}
+  if(!(isNum(iQuery) && iQuery > 0)){return 'invalid query format';}
+  return true;
+}
