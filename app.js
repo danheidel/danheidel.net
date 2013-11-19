@@ -67,9 +67,9 @@ app.get('/api/starcount/:dist', function(res, req){
         console.log(rows + 'rows send');
         res.send(rows);
       }
-    }
+    });
   }
-}
+});
 
 app.listen(port);
 console.log('serving danheidel.net on port: ' + port);
