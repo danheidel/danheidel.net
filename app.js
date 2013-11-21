@@ -1,4 +1,5 @@
 var express = require('express');
+var common = require('/var/www/common/common');
 var dbCon = require('dbCon');
 var isNum = require('sanitize').isNumber;
 var app = express();
@@ -10,12 +11,9 @@ if(typeof port === 'undefined'){
 }
 
 //init database access
-dbCon.initDbPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'Ih35MV9XqLcS',
-  database: 'HYG',
-});
+var dbVars = common.dbVars;
+dbVars.database = 'HYG';
+dbCon.initDbPool(dbVars);
 
 // all environments
 app.use(express.logger());
