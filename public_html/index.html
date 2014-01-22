@@ -1,172 +1,67 @@
 <!DOCTYPE html>
-<!--[if IE 8]>          <html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if IE 8]>          <html class='no-js lt-ie9' lang='en' > <![endif]-->
+<!--[if gt IE 8]><!--> <html class='no-js' lang='en' > <!--<![endif]-->
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width' />
   <title>Dan Heidel's stuff</title>
 
-  <link rel="stylesheet" href="css/normalize.css" />
-  <link rel="stylesheet" href="css/foundation.css" />
-  <link rel="stylesheet" href="css/app.css" />
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <script src="js/vendor/custom.modernizr.js"></script>
+  <link rel='stylesheet' href='css/normalize.css' />
+  <link rel='stylesheet' href='css/foundation.css' />
+  <link rel='stylesheet' href='css/app.css' />
+  <link rel='stylesheet' href='css/font-awesome.min.css'>
+  <script src='js/vendor/modernizr.js'></script>
 </head>
 <body>
-  <canvas id="background-canvas"></canvas>
-  <canvas id="foreground-canvas"></canvas>
-  <div class="row">
-    <div class="small-12 large-7 columns hide-for-small">
-        <div class="title-header">
+  <canvas id='background-canvas' class='viz-canvas'></canvas>
+  <canvas id='foreground-canvas' class='viz-canvas'></canvas>
+  <div class='row'>
+    <div class='small-12 large-7 columns hide-for-small'>
+        <div class='title-header'>
           <h2>Dan Heidel's Stuff</h2>
         </div>
     </div>
   </div>
 
-   <div class="sticky" id="sticky-thing">
-      <nav class="top-bar">
-        <ul class="title-area">
-          <!-- Title Area -->
-          <li class="name"></li>
-          <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-        </ul>
+  <div id='menu-content'><!--templated menu data goes here--></div>
+  <div id='main-content'><!--templated data goes here--></div>
 
-        <section class="top-bar-section">
-          <!-- Left Nav Section -->
-          <ul class="left">
-            <li><a href="#" class="menu-item" id="home-menu"><i class="icon-home icon-2x"></i></a></li>
-            <!--<li><a href="#blog">Blog</a></li>-->
-            <li class="has-dropdown" id="artwork-menu"><a href="#art-main">Artwork</a>
-               <ul class="dropdown">
-                  <li>
-                    <a href="#art-rain" class="menu-item" style="text-align: center">
-                      <img src="img/rainshow-thumb.png" class="top-bar-image">
-                      <br>Rain Shower
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#art-contact" class="menu-item" style="text-align: center">
-                      <img src="img/contact thumbnail.png" class="top-bar-image">
-                      <br>Contact
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#art-inspire" class="menu-item" style="text-align: center">
-                      <img src="img/dynamicspace thumbnail.png" class="top-bar-image">
-                      <br>Inspiratories
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#art-finn" class="menu-item" style="text-align: center">
-                      <img src="img/finnhill thumbnail.png" class="top-bar-image">
-                      <br>Finn Hill
-                    </a>
-                  </li>
-               </ul>
-            </li>
-            <li class="has-dropdown" id="electronics-menu"><a href="#electronics">Electronics</a>
-              <ul class="dropdown">
-                <li><a href="#electronics" class="menu-item">Coming soon!</a></li>
-              </ul>
-            </li>
-            <li><a href="#cv" class="menu-item">CV</a></li>
-            <!--<li><a href="#editor" class="menu-item">Editor</a></li>-->
-          </ul>
-
-          <ul class="right">
-            <li class="has-dropdown" id="contact-menu"><a><i class="icon-envelope icon-large"></i></a>
-              <ul class="dropdown">
-                <li><a href="" data-reveal-id="email-modal" data-reveal-ajax="true" class="menu-item" style="text-align: center"><i class="icon-envelope icon-2x"></i></a>
-                </li>
-                <li>
-                  <a href="https://github.com/danheidel" class="menu-item" target="_blank" style="text-align: center">
-                    <i class="icon-github-sign icon-3x"></i>
-                  </a>
-                </li>
-                <li><a href="https://twitter.com/dan_heidel" class="menu-item" target="_blank" style="text-align: center"><i class="icon-twitter-sign icon-3x"></i></a>
-                </li>
-                <li><a href="https://www.linkedin.com/profile/view?id=43637762" class="menu-item" target="_blank" style="text-align: center"><i class="icon-linkedin-sign icon-3x"></i></a>
-                </li>
-              </ul>
-            </li>
-            <li class="has-dropdown" id="info-menu"><a><i class="icon-info icon-large"></i></a>
-              <ul class="dropdown">
-                <li class="divider">
-                  <div class="panel top-bar" id="about-content">
-                    <a href="construction.html" data-reveal-id="construction-modal" data-reveal-ajax="true">
-                      <img width="35px" height="35px" src="img/under_construction/HeHeartlandForest8728imagesunderconstruction.gif" />
-                    </a>
-                    <p>This is a place to showcase some of the stuff I've been working on.  It's my first attempt at doing serious HTML5 coding so hopefully nothing is too broken. </p>
-                    <br></br>
-                  </div>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a id="hideAll"><i class="icon-minus-sign-alt icon-large"></i></a>
-            </li>
-            <li id="bgOptions">
-              <a data-reveal-id="bg-modal" data-reveal-ajax="true"><i class="icon-cog icon-large"></i></a>
-            </li>
-          </ul>
-        </section>
-      </nav>
-   </div>
-
-  <div id="main-content"><!--templated data goes here--></div>
-
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-  <script>window.$ || document.write('<script src="js/vendor/jquery-2.0.3.js"><\/script')</script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+  <script>window.$ || document.write('<script src=\'js/vendor/jquery-2.0.3.js\'><\/script')</script>
   <!-- -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
-  <script>window._ || document.write('<script src="js/vendor/underscore-1.4.4.js"><\/script')</script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js'></script>
+  <script>window._ || document.write('<script src=\'js/vendor/underscore-1.4.4.js\'><\/script')</script>
   <!-- -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
-  <script>window.Backbone || document.write('<script src="js/vendor/backbone-1.0.0.js"><\/script')</script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js'></script>
+  <script>window.Backbone || document.write('<script src=\'js/vendor/backbone-1.0.0.js\'><\/script')</script>
   <!-- -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
-  <script>window.Handlebars || document.write('<script src="js/vendor/handlebars-1.0.0.js"><\/script')</script>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js'></script>
+  <script>window.Handlebars || document.write('<script src=\'js/vendor/handlebars-1.0.0.js\'><\/script')</script>
   <!-- -->
 
   <script src='js/vendor/d3.v3.js'></script>
-  <script src="js/foundation/foundation.js"></script>
-  <!--
-  <script src="js/foundation.min.js"></script>
-  <script src="js/foundation/foundation.alerts.js"></script>
-  <script src="js/foundation/foundation.clearing.js"></script>
-  <script src="js/foundation/foundation.cookie.js"></script>
-  <script src="js/foundation/foundation.dropdown.js"></script>
-  <script src="js/foundation/foundation.forms.js"></script>
-  <script src="js/foundation/foundation.joyride.js"></script>
-  <script src="js/foundation/foundation.magellan.js"></script>
-  -->
-  <script src="js/foundation/foundation.orbit.js"></script>
-  <script src="js/foundation/foundation.reveal.js"></script>
-  <!--
-  <script src="js/foundation/foundation.section.js"></script>
-  <script src="js/foundation/foundation.tooltips.js"></script>
-  -->
-  <script src="js/foundation/foundation.topbar.js"></script>
-  <!--
-  <script src="js/foundation/foundation.interchange.js"></script>
-  <script src="js/foundation/foundation.placeholder.js"></script>
-  -->
-  <script src="js/es5shim.js"></script>
-  <script src="js/template.js"></script>
-  <script src="js/RaFlib.js"></script>
-  <script src="js/bgAnim.js"></script>
+  <script src='js/foundation/foundation.js'></script>
+  <script src='js/foundation/foundation.orbit.js'></script>
+  <script src='js/foundation/foundation.reveal.js'></script>
+  <script src='js/foundation/foundation.topbar.js'></script>
+  <script src='js/es5shim.js'></script>
+  <script src='js/template.js'></script>
+  <script src='js/menus.js'></script>
+  <script src='js/main.js'></script>
+  <script src='js/stars.js'></script>
+  <script src='js/RaFlib.js'></script>
+  <script src='js/bgAnim.js'></script>
 
-  <script id="omni-template" type="text/x-handlebars-template">
+  <script id='omni-template' type='text/x-handlebars-template'>
     {{#each omni-content}}
       {{> omni-parse}}
     {{/each}}
   </script>
 
   <!--let's hope to hell this never, ever has to be debugged again-->
-  <script id="omni-parse" type="text/x-handlebars-template">{{#if panel}}<div{{#if ../colId}} id="{{../colId}}"{{/if}} class="{{../colClass}} columns">
-      <div{{#if ../panelId}} id="{{../panelId}}"{{/if}} class="panel{{#if ../panelClass}} {{../panelClass}}{{/if}}">{{/if}}{{#if tag}}<{{tag}}{{#if id}} id="{{id}}"{{/if}}{{#if class}} class="{{class}}"{{/if}}{{#if style}} style="{{style}}"{{/if}}{{#if name}} name="{{name}}"{{/if}}{{#if value}} value="{{value}}"{{/if}}{{#if type}} type="{{type}}"{{/if}}{{#if href}} href="{{href}}"{{/if}}{{#if src}} src="{{src}}"{{/if}}{{#if target}} target={{target}}{{/if}}{{#if width}} width="{{width}}"{{/if}}{{#if height}} height="{{height}}"{{/if}}{{#if attr}}{{{attr}}}{{/if}}>{{/if}}{{#if content}}{{content}}{{/if}}{{#if c}}{{c}}{{/if}}{{#each children}}
+  <script id='omni-parse' type='text/x-handlebars-template'>{{#if panel}}<div{{#if ../colId}} id='{{../colId}}'{{/if}} class='{{../colClass}} columns'>
+      <div{{#if ../panelId}} id='{{../panelId}}'{{/if}} class='panel{{#if ../panelClass}} {{../panelClass}}{{/if}}'>{{/if}}{{#if tag}}<{{tag}}{{#if id}} id='{{id}}'{{/if}}{{#if class}} class='{{class}}'{{/if}}{{#if style}} style='{{style}}'{{/if}}{{#if name}} name='{{name}}'{{/if}}{{#if value}} value='{{value}}'{{/if}}{{#if type}} type='{{type}}'{{/if}}{{#if href}} href='{{href}}'{{/if}}{{#if src}} src='{{src}}'{{/if}}{{#if target}} target={{target}}{{/if}}{{#if width}} width='{{width}}'{{/if}}{{#if height}} height='{{height}}'{{/if}}{{#if type}} type='{{type}}'{{/if}}{{#if title}} title='{{title}}'{{/if}}{{#if attr}}{{{attr}}}{{/if}}>{{/if}}{{#if content}}{{content}}{{/if}}{{#if c}}{{c}}{{/if}}{{#each children}}
       {{> omni-parse}}
       {{/each}}{{#each chi}}
       {{> omni-parse}}{{/each}}{{#if tag}}</{{tag}}>{{/if}}{{#if panel}}</div>
@@ -177,145 +72,156 @@
   $(function($){
     window.pageVars = {};
 
-    Handlebars.registerPartial("omni-parse", $('#omni-parse').html());
+    Handlebars.registerPartial('omni-parse', $('#omni-parse').html());
 
     var oGridContent = Backbone.Model.extend({
-       defaults: {"model-content": ""}
     });
 
     pageVars.gridContent = new oGridContent;
 
     var oGridView = Backbone.View.extend({
-      el: "#main-content",
+      el: '#main-content',
       model: pageVars.gridContent,
-      defaults: {
-        mainSource: "",
-        mainTemplate: "",
-        mainContext: "",
-        mainHTML: ""
-      },
       initialize: function(){
+        this.menuEl = $('#menu-content');
+        this.mainEl = $('#main-content');
+        this.menuSource = $('#omni-template').html();
         this.mainSource = $('#omni-template').html();
+        this.menuTemplate = Handlebars.compile(this.menuSource);
         this.mainTemplate = Handlebars.compile(this.mainSource);
-        this.listenTo(this.model, "change", this.render);
+        this.listenTo(this.model, 'change', this.render);
       },
       render: function(){
-        var tempContent = [];
-        if("menu" in this.model.attributes){this.model.get("menu").forEach(function(element){tempContent.push(element);});};
-        if("body" in this.model.attributes){this.model.get("body").forEach(function(element){tempContent.push(element);});};
-        this.mainContext = {"omni-content": tempContent};
-
+        this.startAll();
+        var tempMenu = [], tempBody = [];
+        if('menu' in this.model.attributes){this.model.get('menu').forEach(function(element){tempMenu.push(element);});};
+        if('body' in this.model.attributes){this.model.get('body').forEach(function(element){tempBody.push(element);});};
+        if(this.onUnLoad){  //if departing template has onUnLoad(), call it
+          this.onUnLoad();
+        }
+        this.menuContext = {'omni-content': tempMenu};
+        this.mainContext = {'omni-content': tempBody};
+        
+        this.menuHTML = this.menuTemplate(this.menuContext);
         this.mainHTML = this.mainTemplate(this.mainContext);
-        this.el.innerHTML = this.mainHTML;
+        
+        this.menuEl.html(this.menuHTML);
+        this.mainEl.html(this.mainHTML);
+        
+        this.preFuncsAll();
+        
+        if('funcs' in this.model.attributes){
+          //if new template has onLoad(), call it, if it has onUnLoad(), store for later call
+          if(this.model.get('funcs').onLoad) this.model.get('funcs').onLoad();
+          if(this.model.get('funcs').onUnLoad) this.onUnLoad = this.model.get('funcs').onUnLoad;
+        }
+        
+        this.endAll();
+        
         return this;
-      }
+      },
+      startAll: function(){},
+      preFuncsAll: function(){
+        Foundation.libs.orbit.init();
+        Foundation.libs.topbar.init();        
+      },
+      endAll: function(){}
     });
 
     pageVars.gridView = new oGridView;
 
     var oCaptchaModel = Backbone.Model.extend({
-       defaults: {"main-content": ""}
+       defaults: {'main-content': ''}
     })
 
     pageVars.captchaModel = new oCaptchaModel;
 
     var oCaptchaView = Backbone.View.extend({
-      el: "#email-modal",
+      el: '#email-modal',
       model:pageVars.captchaModel,
       defaults: {
-        captchaSource: "",
-        captchaTemplate: "",
-        captchaContext: "",
-        captchaHTML: ""
+        captchaSource: '',
+        captchaTemplate: '',
+        captchaContext: '',
+        captchaHTML: ''
       },
       initialize: function(){
         this.captchaSource = $('#omni-template').html();
         this.captchaTemplate = Handlebars.compile(this.captchaSource);
-        this.listenTo(this.model, "change", this.render);
+        this.listenTo(this.model, 'change', this.render);
         pageVars.captchaModel.set(templateData.captchaRedData);
       },
       render: function(){
         this.captchaContext = {
-           "omni-content": this.model.get("body")
+           'omni-content': this.model.get('body')
         };
 
         this.captchaHTML = this.captchaTemplate(this.captchaContext);
-        this.el.innerHTML = this.captchaHTML;
+         this.el.innerHTML = this.captchaHTML;
         return this;
       }
     });
 
     pageVars.captchaView = new oCaptchaView;
     
-    var StarModel = Backbone.Model.extend();
-    var StarCollection = Backbone.Collection.extend({
-      model: StarModel,
-      url: '../api/stardist/3',
-    });
 
     var oRouter = Backbone.Router.extend({
       routes: {
-        "": "goHome",
-        "blog":  "goBlog",
-        "art-main":  "goArtMain",
-        "art-rain": "goArtRain",
-        "art-contact": "goArtContact",
-        "art-inspire": "goArtInspire",
-        "art-finn": "goArtFinn",
-        "electronics": "goElectronics",
-        "cv": "goCV",
-        "test": "goTest",
-        "editor": "goEditor",
+        '': 'goHome',
+        'blog':  'goBlog',
+        'soft-main':'goSoftMain',
+        'soft-stars':'goSoftStars',
+        'art-main':  'goArtMain',
+        'art-rain': 'goArtRain',
+        'art-contact': 'goArtContact',
+        'art-inspire': 'goArtInspire',
+        'art-finn': 'goArtFinn',
+        'elec-main': 'goElectronics',
+        'cv': 'goCV',
+        'editor': 'goEditor',
       },
       goHome: function(){
-        pageVars.gridContent.set(templateData.mainData);
-        Foundation.libs.orbit.init();
+        pageVars.gridContent.set(templateData.mainData.attributes);
       },
       goBlog: function(){
       },
+      goSoftMain: function(){
+        pageVars.gridContent.set(templateData.softwareData.attributes);
+      },
+      goSoftStars: function(){
+        pageVars.gridContent.set(templateData.starData.attributes);
+      },
       goArtMain: function(){
-        pageVars.gridContent.set(templateData.artData);
-        Foundation.libs.orbit.init();
+        pageVars.gridContent.set(templateData.artData.attributes);
       },
       goArtRain: function(){
-        pageVars.gridContent.set(templateData.rainData);
-        Foundation.libs.orbit.init();
+        pageVars.gridContent.set(templateData.rainData.attributes);
       },
       goArtContact: function(){
-        pageVars.gridContent.set(templateData.contactData);
-        Foundation.libs.orbit.init();
+        pageVars.gridContent.set(templateData.contactData.attributes);
       },
       goArtInspire: function(){
-        pageVars.gridContent.set(templateData.inspireData);
-        Foundation.libs.orbit.init();
+        pageVars.gridContent.set(templateData.inspireData.attributes);
       },
       goArtFinn: function(){
-        pageVars.gridContent.set(templateData.finnData);
-        Foundation.libs.orbit.init();
+        pageVars.gridContent.set(templateData.finnData.attributes);
       },
       goElectronics: function(){
-        pageVars.gridContent.set(templateData.electronicsData);
-        Foundation.libs.orbit.init();
+        pageVars.gridContent.set(templateData.electronicsData.attributes);
       },
       goCV: function(){
-        pageVars.gridContent.set(templateData.cvData);
-        Foundation.libs.orbit.init();
-      },
-      goTest: function(){
-        pageVars.gridContent.set(templateData.testData);
-        Foundation.libs.orbit.init();
+        pageVars.gridContent.set(templateData.cvData.attributes);
       },
       goEditor: function(){
         pageVars.gridContent.set(templateData.editorData.attributes);
-        Foundation.libs.orbit.init();
       },
     });
     window.myRouter = new oRouter;
     Backbone.history.start();
 
-    window.myCanvas = document.getElementById("background-canvas");
+    window.myCanvas = document.getElementById('background-canvas');
     window.myCtx = myCanvas.getContext('2d');
-    window.editorCanvas = document.getElementById("foreground-canvas");
+    window.editorCanvas = document.getElementById('foreground-canvas');
     window.editorCtx = editorCanvas.getContext('2d');
 
     function resizeCanvas(){
@@ -323,14 +229,14 @@
       myCanvas.height = ($(this).innerHeight());
       myCtx.imageData = myCtx.getImageData(0,0, myCanvas.width, myCanvas.height);
       myCtx.gArray = myCtx.imageData.data; // data is a Uint8ClampedArray
-      myCtx.fillStyle = "rgb(100,0,0)";
+      myCtx.fillStyle = 'rgb(100,0,0)';
       myCtx.fillRect(0, 0, myCanvas.width, myCanvas.height);
       editorCanvas.width = $(this).innerWidth();
       editorCanvas.height = $(this).innerHeight();
     };
     resizeCanvas();
 
-    bgVars.initBG($('#bg-modal'));
+    bgVars.initBG($('#bg-info'), $('#bg-selector'), $('#bg-control'));
     bgVars.selectBG((Math.random()*2)>>0);
     bgVars.initBgVars(myCanvas, myCtx);
 
@@ -346,10 +252,10 @@
         bgVars.initBgVars(myCanvas, myCtx);
         //kludge to fix Foundation top bar behavior
         if (myCanvas.width<=768 && $('#sticky-thing').hasClass('sticky')){
-          $("#sticky-thing").removeClass('sticky');
+          $('#sticky-thing').removeClass('sticky');
         }
         if (myCanvas.width>768 && !$('#sticky-thing').hasClass('sticky')){
-          $("#sticky-thing").addClass('sticky');
+          $('#sticky-thing').addClass('sticky');
         }
       }
     }, window);
@@ -364,25 +270,18 @@
           pageVars.captchaModel.set(templateData.captchaVerifiedContent);
         }
       };
-      if(_.contains(event.currentTarget.classList, "alert")){
-        event.currentTarget.classList.remove("alert");
-        event.currentTarget.innerHTML = "blue";
+      if(_.contains(event.currentTarget.classList, 'alert')){
+        event.currentTarget.classList.remove('alert');
+        event.currentTarget.innerHTML = 'blue';
         checkCaptcha();
       }else{
-        event.currentTarget.classList.add("alert");
-        event.currentTarget.innerHTML = "red";
+        event.currentTarget.classList.add('alert');
+        event.currentTarget.innerHTML = 'red';
         checkCaptcha();
       }
     });
 
-    $('#main-content').on('click', '.editor-item', function(event){
-      //console.log("function: " + event.currentTarget.dataset.editorFunc + "   args: " + event.currentTarget.dataset.editorArgs);
-      //console.log(event);
-      //console.log($("#editor-" + event.currentTarget.dataset.editorFunc + "-" + event.currentTarget.dataset.editorArgs).offset());
-      templateData.editorData.get("funcs")[event.currentTarget.dataset.editorFunc](event);
-    });
-
-    $("#background-canvas").on({
+    $('#background-canvas').on({
       mousedown: function(event){
         bgVars.userInput(event);
       },
@@ -396,26 +295,26 @@
 
     pageVars.hideVal = false;
 
-    $("#hideAll").on({
+    $('#hideAll').on({
       click:function(event){
         pageVars.hideVal = !pageVars.hideVal;
         if(pageVars.hideVal == true){
-          $("#hideAll").html("<i class=\"icon-plus-sign-alt icon-large\"></i>");
-          $(".title-header").slideUp(500);
-          $("#main-content").hide(500);
-          $("li.name").hide(500);
-          $("ul.left").hide(500);
-          $("#contact-menu").hide(500);
-          $("#info-menu").hide(500);
+          $('#hideAll').html('<i class=\'icon-plus-sign-alt icon-large\'></i>');
+          $('.title-header').slideUp(500);
+          $('#main-content').hide(500);
+          $('li.name').hide(500);
+          $('ul.left').hide(500);
+          $('#contact-menu').hide(500);
+          $('#info-menu').hide(500);
         }
         else{
-          $("#hideAll").html("<i class=\"icon-minus-sign-alt icon-large\"></i>");
-          $(".title-header").slideDown(500);
-          $("#main-content").show(500);
-          $("li.name").show(500);
-          $("ul.left").show(500);
-          $("#contact-menu").show(500);
-          $("#info-menu").show(500);
+          $('#hideAll').html('<i class=\'icon-minus-sign-alt icon-large\'></i>');
+          $('.title-header').slideDown(500);
+          $('#main-content').show(500);
+          $('li.name').show(500);
+          $('ul.left').show(500);
+          $('#contact-menu').show(500);
+          $('#info-menu').show(500);
         }
       }
     });
@@ -423,8 +322,12 @@
 
   </script>
 
-  <div id="construction-modal" class="reveal-modal"></div>
-  <div id="email-modal" class="reveal-modal tiny"></div>
-  <div id="bg-modal" class="reveal-modal small"></div>
+  <div id='construction-modal' class='reveal-modal'></div>
+  <div id='email-modal' class='reveal-modal tiny'></div>
+  <div id='bg-modal' class='reveal-modal small'>
+    <div id='bg-info'></div>
+    <div id='bg-selector'></div>
+    <div id='bg-control'></div>
+  </div>
 </body>
 </html>

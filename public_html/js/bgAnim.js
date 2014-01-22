@@ -6,7 +6,8 @@
 })();
 
 //set up vars for game of life
-(function(namespace){  //GoL
+(function(NS){  //GoL
+   var _this = NS;
    var _Canvas = {};
    var _Ctx = {};
    var xBlockSize = 3;
@@ -71,7 +72,7 @@
    };
 
    function fastFillLive(){
-      //console.time("init");
+      //console.time('init');
       var xPix = _Canvas.width;
       var yPix = _Canvas.height;
       var gArray = _Ctx.imageData.data;
@@ -136,34 +137,52 @@
       //console.timeEnd('render');
    };
 
-   namespace.name = "Game of Life";
-   namespace.about = "This is the famous Conway Game of Life";
-   namespace.control = {
-      mainContent: [
-         {tag:"h4",
-         c:"This background visualization is Game of Life."},
-         {tag:"p",
-         c:"It is a recreation of the famous cellular automata algorithm created by John Conway."},
-         {tag:"h4",
-         c:"Choose a background visualization!"},
-         {},
-         {tag:"a", class:"close-reveal-modal", c:"X"},
-         {tag:"div",
-         class:"panel",
+   NS.name = 'Game of Life';
+   NS.blockSize = function(){
+      return xBlockSize;
+   };
+   NS.about = 'This is the famous Conway Game of Life';
+   NS.info = [
+         {tag:'h4',
+         c:'This background visualization is Game of Life.'},
+         {tag:'p',
+         c:'It is a recreation of the famous cellular automata algorithm created by John Conway.'},
+         {tag:'h4',
+         c:'Choose a background visualization!'}
+   ];
+   var tempRadio = [];
+   for(var rep=1;rep<=6;rep++){
+      tempRadio.push({
+        tag:'input',
+        type:'radio',
+        name:'gridSizeRadio',
+        value:rep,
+        c:rep + ' '
+      });
+   }
+   NS.control = [
+         {tag:'a', class:'close-reveal-modal', c:'X'},
+         {tag:'div',
+         class:'panel',
          children:[
-            {tag:"p",
-            id:"bgVizOptionsGoLGridsize",
-            c:"Adjust the gridsize. Current gridsize = " + this.xBlockSize},
-            {tag:"p",
-            c:"Warning - gridsize of 1 will run very slowly"},
-            {tag:"input",
-            type:"checkbox",
-            name:"foo",
-            value:"foo"},
+            {tag:'input',
+            type:'checkbox',
+            name:'foo',
+            attr:' checked=\"checked\" ',
+            c:'auto-adjust gridsize'},
+            {tag:'p',
+            id:'bgVizOptionsGoLGridsize',
+            c:'Adjust the gridsize. Current gridsize = ' + NS.blockSize()},
+            {tag:'div',
+            chi:tempRadio},
+            {tag:'p',
+            c:'Warning - gridsize of 1 will run very slowly'},
          ]}
-      ]
-   },
-   namespace.initBgVars = function(iCanvas, iCtx){
+   ];
+   NS.gridSizeRadioClick = function(){
+      
+   };
+   NS.initBgVars = function(iCanvas, iCtx){
       var seedVals = [3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 39, 43, 47];
       _Canvas = iCanvas;
       _Ctx = iCtx;
@@ -177,13 +196,13 @@
       cGridDown = new Uint8Array(xBlocks * yBlocks);
       cGrid2 = new Uint8Array(xBlocks * yBlocks);
    };
-   namespace.userInput = function(event){
+   NS.userInput = function(event){
       //console.log(event);
       var gridX = Math.round(event.clientX / xBlockSize);
       var gridY = Math.round(event.clientY / yBlockSize);
       cGrid[gridX + (gridY * xBlocks)] = 1;
    };
-   namespace.updateBgCanvas = function(){
+   NS.updateBgCanvas = function(){
       //convert grid data to graphics data for drawing
       //console.time('fastFill');
       fastFillLive();
@@ -216,7 +235,8 @@
 
 //*****************************************************************************************************************
 
-(function(namespace){  //lattice
+(function(NS){  //lattice
+   var _this = NS;
    var _Canvas = {};
    var _Ctx = {};
    var lCanvas = [];
@@ -232,7 +252,7 @@
    var kT = 0.15;
    var dissipation = 0.70; //energy loss factor per round //.87
    var dissCycle = 0;
-   var bgColor = "rgb(100, 0, 0)";
+   var bgColor = 'rgb(100, 0, 0)';
 
 
    function dist(dX, dY){
@@ -329,19 +349,19 @@
          //draw atom to copy
          lCtx[rep].beginPath();
          lCtx[rep].arc(0, 0, radius - 9, 0, Math.PI*2, false);
-         lCtx[rep].fillStyle = "#222";
+         lCtx[rep].fillStyle = '#222';
          lCtx[rep].fill();
          lCtx[rep].closePath();
 
          lCtx[rep].beginPath();
          lCtx[rep].arc(0, radius - 4, 3, 0, Math.PI*2, false);
-         lCtx[rep].fillStyle = "#222";
+         lCtx[rep].fillStyle = '#222';
          lCtx[rep].fill();
          lCtx[rep].closePath();
 
          lCtx[rep].beginPath();
          lCtx[rep].lineWidth = 2;
-         lCtx[rep].strokeStyle = "#222";
+         lCtx[rep].strokeStyle = '#222';
          lCtx[rep].arc(0, 0, radius - 4, 0, Math.PI*2, false);
          lCtx[rep].stroke();
          lCtx[rep].closePath();
@@ -351,7 +371,7 @@
       rCanvas.width = (2 * radius) + 2;
       rCanvas.height = (2 * radius) + 2;
       rCtx.arc(rCanvas.width/2, rCanvas.height/2,radius, 0, Math.PI*2, false);
-      rCtx.fillStyle = "#a22";
+      rCtx.fillStyle = '#a22';
       rCtx.fill();
    }
 
@@ -384,27 +404,26 @@
       }
    };
 
-   namespace.name = "Lattice";
-   namespace.about = "Simulation of lattice vibrations";
-   namespace.control = {
-      mainContent: [
-         {tag:"h4",
-         c:"The current background visualization is Lattice."},
-         {tag:"p",
-         c:"This is possibly the least-realistic atomic lattice vibration simulator ever made."},
-         {tag:"h4",
-         c:"Choose a background visualization!"},
-         {},
-         {tag:"a", class:"close-reveal-modal", c:"X"},
-         {tag:"div",
-         class:"panel",
+   NS.name = 'Lattice';
+   NS.about = 'Simulation of lattice vibrations';
+   NS.info = [
+         {tag:'h4',
+         c:'The current background visualization is Lattice.'},
+         {tag:'p',
+         c:'This is possibly the least-realistic atomic lattice vibration simulator ever made.'},
+         {tag:'h4',
+         c:'Choose a background visualization!'}
+   ],
+   NS.control = [
+         {tag:'a', class:'close-reveal-modal', c:'X'},
+         {tag:'div',
+         class:'panel',
          children:[
-            {tag:"p",
-            c:"No controls for this! :("}
+            {tag:'p',
+            c:'No controls for this! :('}
          ]}
-      ],
-   };
-   namespace.initBgVars = function(iCanvas, iCtx){
+   ];
+   NS.initBgVars = function(iCanvas, iCtx){
       _Canvas = iCanvas;
       _Ctx = iCtx;
       aGrid = [];
@@ -446,8 +465,8 @@
       findNeighbors();
    };
 
-   namespace.userInput = function(event){
-      if(event.type == "mousedown"){
+   NS.userInput = function(event){
+      if(event.type == 'mousedown'){
          var tempX = event.clientX;
          var tempY = event.clientY; 
          for(var rep=0;rep<aGrid.length;rep++){
@@ -458,9 +477,9 @@
       }
    };
 
-   namespace.updateBgCanvas = function(){
+   NS.updateBgCanvas = function(){
       //console.time('updateBgCanvas');
-      //myCtx.fillStyle = "rgb(100,0,0)";
+      //myCtx.fillStyle = 'rgb(100,0,0)';
       myCtx.fillStyle = bgColor;
       myCtx.fillRect(0, 0, myCanvas.width, myCanvas.height);
       for(var rep=0;rep<aGrid.length;rep++){
@@ -484,121 +503,122 @@
 
 //*****************************************************************************************************************
 
-(function(namespace){  //boids
+(function(NS){  //boids
+   var _this = NS;
    var _Canvas = {};
    var _Ctx = {};
    var fArray = [];
 
-   namespace.name = "Flock";
-   namespace.about = "This is a 2D version of the famous 1984 flock simulator Boids";
-   namespace.control = {
-      mainContent: [
-         {tag:"h4",
-         c:"The current background visualization is Flock."},
-         {tag:"p",
-         c:"This is a variant of the famous 1986 flocking behavior simulator Boids created by Craig Reynolds."},
-         {tag:"h4",
-         c:"Choose a background visualization!"},
-         {},
-         {tag:"a", class:"close-reveal-modal", c:"X"},
-         {tag:"div",
-         class:"panel",
+   NS.name = 'Flock';
+   NS.about = 'This is a 2D version of the famous 1984 flock simulator Boids';
+   NS.info = [
+         {tag:'h4',
+         c:'The current background visualization is Flock.'},
+         {tag:'p',
+         c:'This is a variant of the famous 1986 flocking behavior simulator Boids created by Craig Reynolds.'},
+         {tag:'h4',
+         c:'Choose a background visualization!'},
+   ],
+   NS.control = [
+         {tag:'a', class:'close-reveal-modal', c:'X'},
+         {tag:'div',
+         class:'panel',
          children:[
-            {tag:"p",
-            c:" "}
+            {tag:'p',
+            c:' '}
          ]}
-      ]
-   },
-   namespace.initBgVars = function(iCanvas, iCtx){
+   ],
+   NS.initBgVars = function(iCanvas, iCtx){
    };
-   namespace.userInput = function(event){
+   NS.userInput = function(event){
    };
-   namespace.updateBgCanvas = function(){
+   NS.updateBgCanvas = function(){
    };
 })(bgVars.incompletevisualizations.flock = bgVars.incompletevisualizations.flock || {});
 
 //*****************************************************************************************************************
 
-bgVars.initBG = function(elem){
+bgVars.initBG = function(info, selector, control){
+   bgVars.vizList = [];
+   _.each(bgVars.visualizations, function(element){
+      bgVars.vizList.push(element.name);
+   });
+   
    var oBgModel = Backbone.Model.extend({
-      defaults: {"main-content": ""}
    })
 
    bgVars.bgModel = new oBgModel;
 
    var oBgView = Backbone.View.extend({
-      el: elem,
       model:bgVars.bgModel,
-      defaults: {
-         bgSource: "",
-         bgTemplate: "",
-         bgContext: "",
-         bgHTML: ""
-      },
-      initialize: function(){
-         this.bgSource = $('#omni-template').html();
-         this.bgTemplate = Handlebars.compile(this.bgSource);
-         this.listenTo(this.model, "change", this.render);
-      },
-      render: function(){
-         this.bgContext = {
-            "omni-content": this.model.get("mainContent")
-         };
-
-         this.bgHTML = this.bgTemplate(this.bgContext);
-         this.el.innerHTML = this.bgHTML;
-
+      postInitialize: function(info, selector, control){
+         this.infoEl = info;
+         this.infoSource = $('#omni-template').html();
+         this.infoTemplate = Handlebars.compile(this.infoSource);
+         
+         //selector el is only set once
+         var tempRow = 
+            [{tag:'div',
+            class:'row',
+            children:[
+              {tag:'select',
+               id:'bgVizSelect',
+               name:'visualization',
+               children:[
+               ]}       
+            ]}];
+      
+         _.each(bgVars.vizList, function(element, index){
+            tempRow[0].children[0].children.push({
+               tag:'option',
+               id:('bgVizOption'+index),
+               value:index + 1,
+               c:element
+            });
+         }, this);
+         this.selectorEl = selector;
+         this.selectorSource = $('#omni-template').html();
+         this.selectorTemplate = Handlebars.compile(this.selectorSource);
+         this.selectorContext = {'omni-content': tempRow};
+         this.selectorHTML = this.selectorTemplate(this.selectorContext);
+         this.selectorEl.html(this.selectorHTML);
+         
+         //attach event handlers (need to redo through template engine later)
          $('#bgVizSelect').on({
-            focus: function(event){
-               event.currentTarget.selectedIndex = bgVars.selectedBG;
-            },
             change: function(event){
                bgVars.selectBG(event.currentTarget.selectedIndex);
                bgVars.initBgVars(myCanvas, myCtx);
             }
          });
+         
+         this.controlEl = control;
+         this.controlSource = $('#omni-template').html();
+         this.controlTemplate = Handlebars.compile(this.controlSource);
+         
+         this.listenTo(this.model, 'change', this.render);
+      },
+      render: function(){
+         this.infoContext = {'omni-content': this.model.get('info')};
+         this.infoHTML = this.infoTemplate(this.infoContext);
+         this.infoEl.html(this.infoHTML);
+         
+         $('#bgVizSelect').children().eq(this.model.get('index')).prop('selected', true);
+         
+         this.controlContext = {'omni-content': this.model.get('control')};
+         this.controlHTML = this.controlTemplate(this.controlContext);
+         this.controlEl.html(this.controlHTML);
       
       return this;
       }         
    });
 
    bgVars.bgView = new oBgView;
-
-   bgVars.vizList = [];
-
-   _.each(bgVars.visualizations, function(element){
-      bgVars.vizList.push(element.name);
-   });
-
-   var tempRow = 
-      {tag:"div",
-      class:"row",
-      children:[
-         {tag:"select",
-         id:"bgVizSelect",
-         name:"visualization",
-         //attr:" onchange=\"alert('change');\"",
-         children:[
-         ]}       
-      ]};
-
-   _.each(bgVars.vizList, function(element, index){
-      tempRow.children[0].children.push({
-         tag:"option",
-         id:("bgVizOption"+index),
-         value:index,
-         c:element,
-      });
-   });
-
-   _.each(bgVars.visualizations, function(element){
-      element.control.mainContent[3] = tempRow;
-   });
+   bgVars.bgView.postInitialize(info, selector, control);
 }
 
-bgVars.selectBG = function(selector){
-   selectedBG = selector;
-   var vizName = bgVars.vizList[selector%(_.size(bgVars.vizList))];
+bgVars.selectBG = function(index){
+   selectedBG = index;
+   var vizName = bgVars.vizList[index%(_.size(bgVars.vizList))];
    var viz = _.find(bgVars.visualizations, function(element){return (element.name == vizName);});
 
    bgVars.name = viz.name;
@@ -606,5 +626,5 @@ bgVars.selectBG = function(selector){
    bgVars.initBgVars = viz.initBgVars;
    bgVars.userInput = viz.userInput;
    bgVars.updateBgCanvas = viz.updateBgCanvas;
-   bgVars.bgModel.set(viz.control);
+   bgVars.bgModel.set({'info': viz.info, 'control': viz.control, 'index': index});
 };
