@@ -1,5 +1,6 @@
 var express = require('express');
 
+var user, port;
 startup();
 
 var app = express();
