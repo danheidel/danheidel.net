@@ -1,0 +1,672 @@
+/*templateData.editorData = new templateFunctions.BuildPage({
+  menuTemplate:{
+    placement:'',
+    width:'full',
+    clickable:'true',
+    title:'JSON editor',
+    titleHref:'',
+    mobileIcon:true,
+    mobileName:'',
+    mobileHref:'',
+    left:[
+      {name:'edit',
+      children:[
+        {name:'copy',
+        selectable:true,
+        func:'edit'},
+        {name:'paste',
+        selectable:true,
+        func:'edit'},
+        {name:'cut',
+        selectable:true,
+        func:'edit'},
+        {name:'delete',
+        selectable:true,
+        func:'edit'}
+      ]},
+      {name:'grid',
+      children:[
+        {name:'row',
+        selectable:true,
+        func:'grid'},
+        {name:'column',
+        children:[
+          {name:'column-12',
+          selectable:true,
+          func:'grid'},
+          {name:'column-11',
+          selectable:true,
+          func:'grid'},
+          {name:'column-10',
+          selectable:true,
+          func:'grid'},
+          {name:'column-9',
+          selectable:true,
+          func:'grid'},
+          {name:'column-8',
+          selectable:true,
+          func:'grid'},
+          {name:'column-7',
+          selectable:true,
+          func:'grid'},
+          {name:'column-6',
+          selectable:true,
+          func:'grid'},
+          {name:'column-5',
+          selectable:true,
+          func:'grid'},
+          {name:'column-4',
+          selectable:true,
+          func:'grid'},
+          {name:'column-3',
+          selectable:true,
+          func:'grid'},
+          {name:'column-2',
+          selectable:true,
+          func:'grid'},
+          {name:'column-1',
+          selectable:true,
+          func:'grid'},
+        ]},
+      ]},
+      {name:'text elements'},
+      {name:'Icons (Font Awesome)',
+      children:[
+        {name:'Web Applications',
+        children:[
+          {name:'1-12',
+          children:[
+            {icon:'adjust'},
+            {icon:'anchor'},
+            {icon:'archive'},
+            {icon:'asterisk'},
+            {icon:'ban-circle'},
+            {icon:'bar-chart'},
+            {icon:'barcode'},
+            {icon:'beaker'},
+            {icon:'beer'},
+            {icon:'bell'},
+            {icon:'bell-alt'},
+            {icon:'bolt'},
+          ]},
+          {name:'13-24',
+          children:[
+            {icon:'book'},
+            {icon:'bookmark'},
+            {icon:'bookmark-empty'},
+            {icon:'briefcase'},
+            {icon:'bug'},
+            {icon:'building'},
+            {icon:'bullhorn'},
+            {icon:'bullseye'},
+            {icon:'calendar'},
+            {icon:'calendar-empty'},
+            {icon:'camera'},
+            {icon:'camera-retro'},
+          ]},
+          {name:'25-36',
+          children:[
+            {icon:'certificate'},
+            {icon:'check'},
+            {icon:'check-empty'},
+            {icon:'check-minus'},
+            {icon:'check-sign'},
+            {icon:'circle'},
+            {icon:'circle-blank'},
+            {icon:'cloud'},
+            {icon:'cloud-download'},
+            {icon:'cloud-upload'},
+            {icon:'code'},
+            {icon:'code-fork'},
+          ]},
+          {name:'37-48',
+          children:[
+            {icon:'coffee'},
+            {icon:'cog'},
+            {icon:'cogs'},
+            {icon:'collapse'},
+            {icon:'collapse-alt'},
+            {icon:'collapse-top'},
+            {icon:'comment'},
+            {icon:'comment-alt'},
+            {icon:'comments'},
+            {icon:'comments-alt'},
+            {icon:'compass'},
+            {icon:'credit-card'},
+          ]},
+          {name:'49-60',
+          children:[
+            {icon:'crop'},
+            {icon:'dashboard'},
+            {icon:'desktop'},
+            {icon:'download'},
+            {icon:'download-alt'},
+            {icon:'edit'},
+            {icon:'edit-sign'},
+            {icon:'ellipsis-horizontal'},
+            {icon:'ellipsis-vertical'},
+            {icon:'envelope'},
+            {icon:'envelope-alt'},
+            {icon:'eraser'},
+          ]},
+          {name:'61-72',
+          children:[
+            {icon:'exchange'},
+            {icon:'exclamation'},
+            {icon:'exclamation-sign'},
+            {icon:'expand'},
+            {icon:'expand-alt'},
+            {icon:'external-link'},
+            {icon:'external-link-sign'},
+            {icon:'eye-close'},
+            {icon:'eye-open'},
+            {icon:'facetime-video'},
+            {icon:'female'},
+            {icon:'fighter-jet'},
+          ]},
+          {name:'73-84',
+          children:[
+            {icon:'film'},
+            {icon:'filter'},
+            {icon:'fire'},
+            {icon:'fire-extinguisher'},
+            {icon:'flag'},
+            {icon:'flag-alt'},
+            {icon:'flag-checkered'},
+            {icon:'folder-close'},
+            {icon:'folder-close-alt'},
+            {icon:'folder-open'},
+            {icon:'folder-open-alt'},
+            {icon:'food'},
+          ]},
+          {name:'85-96',
+          children:[
+            {icon:'frown'},
+            {icon:'gamepad'},
+            {icon:'gift'},
+            {icon:'glass'},
+            {icon:'globe'},
+            {icon:'group'},
+            {icon:'hdd'},
+            {icon:'headphones'},
+            {icon:'heart'},
+            {icon:'heart-empty'},
+            {icon:'home'},
+            {icon:'inbox'},
+          ]},
+          {name:'97-108',
+          children:[
+            {icon:'info'},
+            {icon:'info-sign'},
+            {icon:'key'},
+            {icon:'keyboard'},
+            {icon:'laptop'},
+            {icon:'leaf'},
+            {icon:'legal'},
+            {icon:'lemon'},
+            {icon:'level-down'},
+            {icon:'level-up'},
+            {icon:'lightbulb'},
+            {icon:'location-arrow'},
+          ]},
+          {name:'109-120',
+          children:[
+            {icon:'lock'},
+            {icon:'magic'},
+            {icon:'magnet'},
+            {icon:'mail-reply-all'},
+            {icon:'male'},
+            {icon:'map-marker'},
+            {icon:'meh'},
+            {icon:'microphone'},
+            {icon:'microphone-off'},
+            {icon:'minus'},
+            {icon:'minus-sign'},
+            {icon:'minus-sign-alt'},
+          ]},
+          {name:'121-132',
+          children:[
+            {icon:'mobile-phone'},
+            {icon:'money'},
+            {icon:'moon'},
+            {icon:'move'},
+            {icon:'music'},
+            {icon:'off'},
+            {icon:'ok'},
+            {icon:'ok-circle'},
+            {icon:'ok-sign'},
+            {icon:'pencil'},
+            {icon:'phone'},
+            {icon:'phone-sign'},
+          ]},
+          {name:'133-144',
+          children:[
+            {icon:'picture'},
+            {icon:'plane'},
+            {icon:'plus'},
+            {icon:'plus-sign'},
+            {icon:'plus-sign-alt'},
+            {icon:'print'},
+            {icon:'pushpin'},
+            {icon:'puzzle-piece'},
+            {icon:'qrcode'},
+            {icon:'question'},
+            {icon:'question-sign'},
+            {icon:'quote-left'},
+          ]},
+          {name:'145-156',
+          children:[
+            {icon:'quote-right'},
+            {icon:'random'},
+            {icon:'refresh'},
+            {icon:'remove'},
+            {icon:'remove-circle'},
+            {icon:'remove-sign'},
+            {icon:'reorder'},
+            {icon:'reply'},
+            {icon:'reply-all'},
+            {icon:'resize-horizontal'},
+            {icon:'resize-vertical'},
+            {icon:'retweet'},
+          ]},
+          {name:'157-168',
+          children:[
+            {icon:'road'},
+            {icon:'rocket'},
+            {icon:'rss'},
+            {icon:'rss-sign'},
+            {icon:'screenshot'},
+            {icon:'search'},
+            {icon:'share'},
+            {icon:'share-alt'},
+            {icon:'share-sign'},
+            {icon:'shield'},
+            {icon:'shopping-cart'},
+            {icon:'sign-blank'},
+          ]},
+          {name:'169-180',
+          children:[
+            {icon:'signal'},
+            {icon:'signin'},
+            {icon:'signout'},
+            {icon:'sitemap'},
+            {icon:'smile'},
+            {icon:'sort'},
+            {icon:'sort-by-alphabet'},
+            {icon:'sort-by-alphabet-alt'},
+            {icon:'sort-by-attributes'},
+            {icon:'sort-by-attributes-alt'},
+            {icon:'sort-by-order'},
+            {icon:'sort-by-order-alt'},
+          ]},
+          {name:'181-192',
+          children:[
+            {icon:'sort-down'},
+            {icon:'sort-up'},
+            {icon:'spinner'},
+            {icon:'star'},
+            {icon:'star-empty'},
+            {icon:'star-half'},
+            {icon:'star-half-empty'},
+            {icon:'subscript'},
+            {icon:'suitcase'},
+            {icon:'sun'},
+            {icon:'superscript'},
+            {icon:'tablet'},
+          ]},
+          {name:'193-204',
+          children:[
+            {icon:'tag'},
+            {icon:'tags'},
+            {icon:'tasks'},
+            {icon:'terminal'},
+            {icon:'thumbs-down'},
+            {icon:'thumbs-down-alt'},
+            {icon:'thumbs-up'},
+            {icon:'thumbs-up-alt'},
+            {icon:'ticket'},
+            {icon:'time'},
+            {icon:'tint'},
+            {icon:'trash'},
+          ]},
+          {name:'205-216',
+          children:[
+            {icon:'trophy'},
+            {icon:'truck'},
+            {icon:'umbrella'},
+            {icon:'unlock'},
+            {icon:'unlock-alt'},
+            {icon:'upload'},
+            {icon:'upload-alt'},
+            {icon:'user'},
+            {icon:'volume-down'},
+            {icon:'volume-off'},
+            {icon:'volume-up'},
+            {icon:'warning-sign'},
+          ]},
+          {name:'217-219',
+          children:[
+            {icon:'wrench'},
+            {icon:'zoom-in'},
+            {icon:'zoom-out'},
+          ]},
+        ]},
+        {name:'Currency',
+        children:[
+          {icon:'btc'},
+          {icon:'cny'},
+          {icon:'eur'},
+          {icon:'gbp'},
+          {icon:'inr'},
+          {icon:'jpy'},
+          {icon:'krw'},
+          {icon:'usd'},
+        ]},
+        {name:'Text Editor',
+        children:[
+          {name:'1-12',
+          children:[
+            {icon:'align-center'},
+            {icon:'align-justify'},
+            {icon:'align-left'},
+            {icon:'align-right'},
+            {icon:'bold'},
+            {icon:'columns'},
+            {icon:'copy'},
+            {icon:'cut'},
+            {icon:'eraser'},
+            {icon:'file'},
+            {icon:'file-alt'},
+            {icon:'file-text'},
+          ]},
+          {name:'13-24',
+          children:[
+            {icon:'file-text-alt'},
+            {icon:'font'},
+            {icon:'indent-left'},
+            {icon:'indent-right'},
+            {icon:'italic'},
+            {icon:'link'},
+            {icon:'list'},
+            {icon:'list-alt'},
+            {icon:'list-ol'},
+            {icon:'list-ul'},
+            {icon:'paper-clip'},
+            {icon:'paste'},
+          ]},
+          {name:'25-36',
+          children:[
+            {icon:'repeat'},
+            {icon:'save'},
+            {icon:'strikethrough'},
+            {icon:'table'},
+            {icon:'text-height'},
+            {icon:'text-width'},
+            {icon:'th'},
+            {icon:'th-large'},
+            {icon:'th-list'},
+            {icon:'underline'},
+            {icon:'undo'},
+            {icon:'unlink'},
+          ]},
+        ]},
+        {name:'Directionals',
+        children:[
+          {name:'1-12',
+          children:[
+            {icon:'angle-down'},
+            {icon:'angle-left'},
+            {icon:'angle-right'},
+            {icon:'angle-up'},
+            {icon:'arrow-down'},
+            {icon:'arrow-left'},
+            {icon:'arrow-right'},
+            {icon:'arrow-up'},
+            {icon:'caret-down'},
+            {icon:'caret-left'},
+            {icon:'caret-right'},
+            {icon:'caret-up'},
+          ]},
+          {name:'13-24',
+          children:[
+            {icon:'chevron-down'},
+            {icon:'chevron-left'},
+            {icon:'chevron-right'},
+            {icon:'chevron-up'},
+            {icon:'chevron-down'},
+            {icon:'chevron-left'},
+            {icon:'chevron-right'},
+            {icon:'chevron-up'},
+            {icon:'circle-arrow-down'},
+            {icon:'circle-arrow-left'},
+            {icon:'circle-arrow-right'},
+            {icon:'circle-arrow-up'},
+          ]},
+          {name:'25-36',
+          children:[
+            {icon:'double-angle-down'},
+            {icon:'double-angle-left'},
+            {icon:'double-angle-right'},
+            {icon:'double-angle-up'},
+            {icon:'hand-down'},
+            {icon:'hand-left'},
+            {icon:'hand-right'},
+            {icon:'hand-up'},
+            {icon:'long-arrow-down'},
+            {icon:'long-arrow-left'},
+            {icon:'long-arrow-right'},
+            {icon:'long-arrow-up'},
+          ]},]},
+        {name:'Video Player',
+        children:[
+          {name:'1-8',
+          children:[
+            {icon:'backward'},
+            {icon:'eject'},
+            {icon:'fast-backward'},
+            {icon:'fast-forward'},
+            {icon:'forward'},
+            {icon:'fullscreen'},
+            {icon:'pause'},
+            {icon:'play'},
+          ]},
+          {name:'9-16',
+          children:[
+            {icon:'play-circle'},
+            {icon:'play-sign'},
+            {icon:'resize-full'},
+            {icon:'resize-small'},
+            {icon:'step-backward'},
+            {icon:'step-forward'},
+            {icon:'stop'},
+            {icon:'youtube-play'},
+          ]},]},
+        {name:'Brand Icons',
+        children:[
+          {name:'1-12',
+          children:[
+            {icon:'adn'},
+            {icon:'android'},
+            {icon:'apple'},
+            {icon:'bitbucket'},
+            {icon:'bitbucket-sign'},
+            {icon:'btc'},
+            {icon:'css3'},
+            {icon:'dribbble'},
+            {icon:'dropbox'},
+            {icon:'facebook'},
+            {icon:'facebook-sign'},
+            {icon:'flickr'},
+          ]},
+          {name:'13-24',
+          children:[
+            {icon:'foursquare'},
+            {icon:'github'},
+            {icon:'github-alt'},
+            {icon:'github-sign'},
+            {icon:'gittip'},
+            {icon:'google-plus'},
+            {icon:'google-plus-sign'},
+            {icon:'html5'},
+            {icon:'instagram'},
+            {icon:'linkedin'},
+            {icon:'linkedin-sign'},
+            {icon:'linux'},
+          ]},
+          {name:'25-36',
+          children:[
+            {icon:'maxcdn'},
+            {icon:'pinterest'},
+            {icon:'pinterest-sign'},
+            {icon:'renren'},
+            {icon:'skype'},
+            {icon:'stackexchange'},
+            {icon:'trello'},
+            {icon:'tumblr'},
+            {icon:'tumblr-sign'},
+            {icon:'twitter'},
+            {icon:'twitter-sign'},
+            {icon:'vk'},
+          ]},
+          {name:'37-43',
+          children:[
+            {icon:'weibo'},
+            {icon:'windows'},
+            {icon:'xing'},
+            {icon:'xing-sign'},
+            {icon:'youtube'},
+            {icon:'youtube-play'},
+            {icon:'youtube-sign'},
+          ]},]},
+        {name:'Medical',
+        children:[
+          {icon:'ambulance'},
+          {icon:'h-sign'},
+          {icon:'hospital'},
+          {icon:'medkit'},
+          {icon:'plus-sign-alt'},
+          {icon:'stethoscope'},
+          {icon:'user-md'},
+        ]},
+      ]}
+    ],
+    right:[],
+  },
+  bodyTemplate:{
+    tag:'div',
+    id:'editor-workarea'
+  },
+  funcEvents:{
+    edit: function(iEvent){
+      var editorArgs = iEvent.currentTarget.dataset.editorArgs;
+      console.log(editorArgs);
+    },
+    grid: function(iEvent){
+      var editorArgs = iEvent.currentTarget.dataset.editorArgs;
+      console.log(editorArgs);
+
+    },
+    icon: function(iEvent){
+      var editorArgs = iEvent.currentTarget.dataset.editorArgs;
+      console.log(editorArgs);
+
+    },
+  }
+},{parse:true});*/
+
+
+   <!--<div class="sticky" id="sticky-thing">
+      <nav class="top-bar">
+        <ul class="title-area">
+          <li class="name"></li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="left">
+            <li><a href="#" class="menu-item" id="home-menu"><i class="icon-home icon-2x"></i></a></li>
+            <li class="has-dropdown" id="software-menu"><a href="#soft-main">Software</a>
+              <ul class="dropdown">
+                  <li>
+                    <a href="#soft-stars" class="menu-item" style="text-align: center">
+                      <img src="img/blank thumb.png" class="top-bar-image">
+                      <br>Stars
+                    </a>
+                  </li>                
+              </ul>
+            </li>
+            <li class="has-dropdown" id="artwork-menu"><a href="#art-main">Artwork</a>
+               <ul class="dropdown">
+                  <li>
+                    <a href="#art-rain" class="menu-item" style="text-align: center">
+                      <img src="img/rainshow-thumb.png" class="top-bar-image">
+                      <br>Rain Shower
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#art-contact" class="menu-item" style="text-align: center">
+                      <img src="img/contact thumbnail.png" class="top-bar-image">
+                      <br>Contact
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#art-inspire" class="menu-item" style="text-align: center">
+                      <img src="img/dynamicspace thumbnail.png" class="top-bar-image">
+                      <br>Inspiratories
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#art-finn" class="menu-item" style="text-align: center">
+                      <img src="img/finnhill thumbnail.png" class="top-bar-image">
+                      <br>Finn Hill
+                    </a>
+                  </li>
+               </ul>
+            </li>
+            <li class="has-dropdown" id="electronics-menu"><a href="#elec-main">Electronics</a>
+              <ul class="dropdown">
+                <li><a href="#electronics" class="menu-item">Coming soon!</a></li>
+              </ul>
+            </li>
+            <li><a href="#cv" class="menu-item">CV</a></li>
+          </ul>
+
+          <ul class="right">
+            <li class="has-dropdown" id="contact-menu"><a><i class="icon-envelope icon-large"></i></a>
+              <ul class="dropdown">
+                <li><a href="" data-reveal-id="email-modal" data-reveal-ajax="true" class="menu-item" style="text-align: center"><i class="icon-envelope icon-2x"></i></a>
+                </li>
+                <li>
+                  <a href="https://github.com/danheidel" class="menu-item" target="_blank" style="text-align: center">
+                    <i class="icon-github-sign icon-3x"></i>
+                  </a>
+                </li>
+                <li><a href="https://twitter.com/dan_heidel" class="menu-item" target="_blank" style="text-align: center"><i class="icon-twitter-sign icon-3x"></i></a>
+                </li>
+                <li><a href="https://www.linkedin.com/profile/view?id=43637762" class="menu-item" target="_blank" style="text-align: center"><i class="icon-linkedin-sign icon-3x"></i></a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-dropdown" id="info-menu"><a><i class="icon-info icon-large"></i></a>
+              <ul class="dropdown">
+                <li class="divider">
+                  <div class="panel top-bar" id="about-content">
+                    <a href="construction.html" data-reveal-id="construction-modal" data-reveal-ajax="true">
+                      <img width="35px" height="35px" src="img/under_construction/HeHeartlandForest8728imagesunderconstruction.gif" />
+                    </a>
+                    <p>This is a place to showcase some of the stuff I've been working on.  It's my first attempt at doing serious HTML5 coding so hopefully nothing is too broken. </p>
+                    <br></br>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a id="hideAll"><i class="icon-minus-sign-alt icon-large"></i></a>
+            </li>
+            <li id="bgOptions">
+              <a data-reveal-id="bg-modal" data-reveal-ajax="true"><i class="icon-cog icon-large"></i></a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+   </div> -->
